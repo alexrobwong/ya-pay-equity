@@ -1,5 +1,5 @@
 # ya-pay-equity
-This repo is for the Young Audiences - Artist Pay Equity project as supported by INFORMS Pro Bono Analytics
+This repo is for the Young Audiences - Artist Pay Equity project as supported by INFORMS Pro Bono Analytics. More information on this project can be found in our google drive folder: https://drive.google.com/drive/folders/1oYqk7QSaUyyeF2URFjdeLuZt0J9x8Vvj?usp=sharing (access request is required)
 
 ## Data 
 Initial data extract was recieved from Lori Rivera on March 8th, 2021. These excel files have commited to this repo in the data folder - while generally not best practice, due the very small size of the files (143 KB total) they were commited to the repo for convenience. 
