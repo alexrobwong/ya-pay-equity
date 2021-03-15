@@ -15,3 +15,7 @@ Within these reports, if the venue price and the artist fee are equal that would
 * **Professional Learning Pricing**: This report is a list of pricing for our professional learning sessions geared primarily toward educators.
 
 * **Workshop Pricing**: This report is a list of pricing for our in school workshops where artists work with students directly teaching their art form.
+
+## Authors
+1. Kristy Baretls (bartels.k@northeastern.edu)
+2. Alexander Wong (alexander.robert.wong@gmail.com)
