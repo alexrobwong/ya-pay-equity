@@ -57,6 +57,10 @@ if __name__== "__main__":
     # Include only wanted Artist IDS - Remove Artist ID: 0
     inc_df = joined[~joined['Artist Payroll ID'].isin(REMOVE_ARTIST_IDS)]
 
+    # Filter data by date
+    print('Filtering All Data by Dates, \n beg {} and \n end {}...'.format(time_start, time_end))
+    inc_df = inc_df[(inc_df['Date']>=time_start) & (inc_df['Date']<time_end)].copy().reset_index(drop=True)
+
     # Sales data with no demographic data
     null_demo = inc_df[pd.isnull(inc_df['artist_id'])].copy().reset_index(drop=True)
 
@@ -68,13 +72,9 @@ if __name__== "__main__":
     grp_size = d['artist_count'].copy()
     grp_size = clean_artist_count(grp_size)
 
-    print('Filtering All Data by Dates, \n beg {} and \n end {}...'.format(time_start, time_end))
-    # Filter data by date
-    df = demo[(demo['Date']>=time_start) & (demo['Date']<time_end)].copy().reset_index(drop=True)
-
     print('Merging All Data...')
     # Merge demo and sales data with group size data
-    df_merged = df.merge(grp_size, on='artist_id')
+    df_merged = demo.merge(grp_size, on='artist_id')
 
     # Retrieve only relevant columns
     df_merged = df_merged[COLS]

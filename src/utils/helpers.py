@@ -5,8 +5,8 @@ import pandas as pd
 from collections import defaultdict
 from dotenv import load_dotenv
 from pandas import ExcelWriter
-#from .config import COMPONENTS, MULT_IDS, REMOVE_ARTIST_IDS, CMP_FILT
-from config import COMPONENTS, MULT_IDS, REMOVE_ARTIST_IDS, CMP_FILT
+from .config import COMPONENTS, MULT_IDS, REMOVE_ARTIST_IDS, CMP_FILT
+#from config import COMPONENTS, MULT_IDS, REMOVE_ARTIST_IDS, CMP_FILT
 
 def upload_dict(file_list, path):
     '''
@@ -82,6 +82,9 @@ def clean_artist_count(df):
     return df.reset_index(drop=True)
 
 def get_groupings(df):
+    '''
+    Separates the dataframes by Component Type
+    '''
     # Dictionary of output
     d_cmp = defaultdict()
 
@@ -89,7 +92,7 @@ def get_groupings(df):
     for c in CMP_FILT:
         df_tmp = df[df['Component Type'].str.contains(c)].copy().reset_index(drop=True)
 
-        # Check if workshop otherwise filter by performance
+        # Check if Workshop otherwise filter by performance
         if c=='Workshop':
             d_cmp['{}_ind'.format(c)] = df_tmp[df_tmp['workshop']==1]
             d_cmp['{}_grp'.format(c)] = df_tmp[df_tmp['workshop']>1]
